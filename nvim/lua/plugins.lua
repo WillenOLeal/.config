@@ -25,7 +25,11 @@ packer.startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
   use 'hrsh7th/nvim-cmp' -- Completion
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
-  use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use {
+    'L3MON4D3/LuaSnip',
+    after = "nvim-cmp",
+    requires = { { "rafamadriz/friendly-snippets" } },
+  }
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
