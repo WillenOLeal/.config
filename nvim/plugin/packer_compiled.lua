@@ -147,8 +147,10 @@ _G.packer_plugins = {
     url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["null-ls.nvim"] = {
+    load_after = {},
     loaded = true,
-    path = "/Users/willenleal/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    needs_bufread = false,
+    path = "/Users/willenleal/.local/share/nvim/site/pack/packer/opt/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
@@ -238,6 +240,8 @@ time([[Defining packer_plugins]], false)
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-cmp ]]
 vim.cmd [[ packadd LuaSnip ]]
+vim.cmd [[ packadd nvim-lspconfig ]]
+vim.cmd [[ packadd null-ls.nvim ]]
 time([[Sequenced loading]], false)
 if should_profile then save_profiles() end
 

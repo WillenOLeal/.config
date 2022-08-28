@@ -14,6 +14,8 @@ packer.startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   } -- Status line
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
   use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
   use 'glepnir/lspsaga.nvim' -- LSP UIs
   use 'folke/lsp-colors.nvim' -- LSP colors
@@ -43,11 +45,12 @@ packer.startup(function(use)
   }
   use 'nvim-telescope/telescope-file-browser.nvim'
   use 'akinsho/nvim-bufferline.lua'
-  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+  use {
+    'jose-elias-alvarez/null-ls.nvim', -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+    after = "nvim-lspconfig",
+  }
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
   use 'lewis6991/gitsigns.nvim'
   use 'dinhhuy258/git.nvim' -- For git blame & browse
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
   use 'norcalli/nvim-colorizer.lua'
 end)

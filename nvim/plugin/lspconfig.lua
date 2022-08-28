@@ -29,7 +29,10 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_create_autocmd("BufWritePre", {
       group = vim.api.nvim_create_augroup("Format", { clear = true }),
       buffer = bufnr,
-      callback = function() vim.lsp.buf.formatting_seq_sync() end
+      callback = function()
+        --[[ vim.lsp.buf.formatting_seq_sync()  ]]
+        vim.cmd("Prettier")
+      end
     })
   end
 end
@@ -74,7 +77,7 @@ nvim_lsp.flow.setup {
 
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
-  filetypes = { "javascript", "javascript/react", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+  filetypes = { "javascript", "javascript/react", "typescript", "typescriptreact" },
   cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities
 }
@@ -101,7 +104,10 @@ nvim_lsp.sumneko_lua.setup {
   },
 }
 
-nvim_lsp.tailwindcss.setup {}
+nvim_lsp.tailwindcss.setup {
+  filetypes = { "javascript", "javascript/react", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+  root_dir = nvim_lsp.util.root_pattern('.git')
+}
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {

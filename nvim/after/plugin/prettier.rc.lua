@@ -31,10 +31,10 @@ prettier.setup {
   print_width = 80,
   prose_wrap = "preserve",
   quote_props = "as-needed",
-  semi = true,
   single_attribute_per_line = false,
   single_quote = true,
   tab_width = 2,
   trailing_comma = "es5",
   use_tabs = false,
+  semi = false,
 }
