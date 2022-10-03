@@ -1,6 +1,6 @@
-vim.cmd("autocmd!")
-vim.cmd("colorscheme nightfox")
-vim.cmd("hi CursorLineNr guifg=fg")
+vim.api.nvim_command('autocmd!')
+vim.api.nvim_command("colorscheme nightfox")
+vim.api.nvim_command("hi CursorLineNr guifg=fg")
 
 vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
@@ -8,7 +8,9 @@ vim.opt.fileencoding = 'utf-8'
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.cursorline = true
-
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.foldlevel=20
 
 vim.opt.title = true
 vim.opt.autoindent = true
