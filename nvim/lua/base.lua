@@ -1,5 +1,5 @@
 vim.api.nvim_command('autocmd!')
-vim.api.nvim_command("colorscheme tokyonight-night")
+vim.api.nvim_command("colorscheme nightfox")
 vim.api.nvim_command("hi CursorLineNr guifg=fg")
 
 vim.scriptencoding = 'utf-8'
